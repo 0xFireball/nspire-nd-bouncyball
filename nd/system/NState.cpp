@@ -10,6 +10,9 @@ void NState::update(float) {
 }
 
 void NState::render(SDL_Surface *surface) {
+    // clear
+    SDL_FillRect(surface, nullptr, SDL_MapRGB(surface->format,
+        this->_clearColor.r, this->_clearColor.g, this->_clearColor.b));
     NGroup<NBasic>::render(surface);
 }
 
