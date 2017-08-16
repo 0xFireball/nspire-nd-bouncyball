@@ -18,7 +18,7 @@ GXX = g++
 LD = ld
 endif
 
-CFLAGS = -Wall -W
+CFLAGS = -Wall -W --std=c++14
 LDFLAGS =
 ZEHNFLAGS = --name $(PRG_NAME)
 

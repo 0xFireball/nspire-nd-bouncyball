@@ -53,6 +53,7 @@ void NGame::start() {
 
 void NGame::game_loop() {
     while (!this->_quit) {
+        SDL_Event event;
         while (SDL_PollEvent(&event)) {
             switch (event.type) {
                 case SDL_QUIT:
@@ -67,10 +68,10 @@ void NGame::game_loop() {
 }
 
 void NGame::update() {
-    this->_clock.update();
+    this->_clock->update();
     int dt = this->_clock->getElapsed();
     // update the current state
-    this->_currentState->update(dt / 1000f);
+    this->_currentState->update(dt / 1000.0f);
 }
 
 void NGame::render() {

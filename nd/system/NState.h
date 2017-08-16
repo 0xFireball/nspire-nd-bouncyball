@@ -4,5 +4,7 @@
 #include "../deps.h"
 
 class NState {
-    // TODO
+public:
+    void update(float dt);
+    void render();
 };
