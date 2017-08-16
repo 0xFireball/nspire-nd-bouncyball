@@ -18,4 +18,7 @@ public:
     NTypedGroup(int maxSize);
     T add(T obj);
     T remove(T obj);
+    virtual void render();
+    
+    virtual ~NTypedGroup() {}
 };

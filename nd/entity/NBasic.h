@@ -7,8 +7,8 @@ class NBasic {
 private:
     bool _exists = true;
 public:
-    virtual void update(float dt) = 0;
-    virtual void render() = 0;
+    virtual void update(float dt) {}
+    virtual void render() {}
     
     void destroy() {
         this->_exists = false;
@@ -17,4 +17,6 @@ public:
     void initialize() {
         this->_exists = true;
     }
+
+    virtual ~NBasic() {}
 };

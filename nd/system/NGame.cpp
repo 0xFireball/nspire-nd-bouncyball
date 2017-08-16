@@ -28,6 +28,7 @@ void NGame::init(int width, int height, int targetFramerate) {
 
 void NGame::switch_state(NState* state) {
     if (this->_currentState != nullptr) delete this->_currentState;
+    if (!state->created) state->create();
     this->_currentState = state;
 }
 
