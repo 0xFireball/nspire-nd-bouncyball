@@ -30,10 +30,10 @@ public:
         return obj;
     }
 
-    virtual void render() {
+    virtual void render(SDL_Surface *surface) {
         for (T*& member: this->members) {
             if (member != nullptr && member->_exists) {
-                member->render();
+                member->render(surface);
             }
         }
     }

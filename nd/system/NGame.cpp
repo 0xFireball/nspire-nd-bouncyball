@@ -92,7 +92,7 @@ void NGame::update(int dt) {
 
 void NGame::render() {
     // render the current state
-    this->_currentState->render();
+    this->_currentState->render(this->_screen);
 }
 
 #ifdef desktop
