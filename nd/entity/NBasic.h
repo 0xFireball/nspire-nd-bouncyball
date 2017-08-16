@@ -7,7 +7,7 @@ class NBasic {
 public:
     bool _exists = true;
 
-    virtual void update(float dt) {}
+    virtual void update(float) {} // float dt
     virtual void render() {}
     
     void destroy() {
