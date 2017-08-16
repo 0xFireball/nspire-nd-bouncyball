@@ -4,6 +4,7 @@
 
 // Other
 #include <string>
+#include <memory>
 
 // SDL
 #include <SDL/SDL.h>
