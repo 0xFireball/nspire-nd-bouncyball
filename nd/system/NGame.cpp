@@ -23,7 +23,7 @@ void NGame::init(int width, int height, int targetFramerate) {
     this->init_vars();
 
     // prepare rendering loop
-    this->_clock = std::unique_ptr<NClock>(new NClock());
+    this->_clock = new NClock();
 }
 
 void NGame::switch_state(NState* state) {
@@ -38,7 +38,12 @@ void NGame::init_vars() {
 void NGame::destroy() {
     // delete the current state
     this->switch_state(nullptr);
+
+    // free SDL surface
     SDL_FreeSurface(this->_screen);
+
+    // free other resources
+    if (this->_clock != nullptr) delete this->_clock;
 }
 
 void NGame::exit() {
@@ -47,7 +52,7 @@ void NGame::exit() {
 }
 
 void NGame::start() {
-    this->_clock.reset();
+    this->_clock->reset();
     this->game_loop();
 }
 
