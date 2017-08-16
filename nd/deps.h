@@ -5,6 +5,7 @@
 // Other
 #include <string>
 #include <memory>
+#include <vector>
 
 #ifdef desktop
 #include <iostream>
