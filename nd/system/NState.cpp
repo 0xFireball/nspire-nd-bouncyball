@@ -10,5 +10,5 @@ void NState::update(float dt) {
 }
 
 void NState::render() {
-    // TODO
+    NGroup<NBasic>::render();
 }

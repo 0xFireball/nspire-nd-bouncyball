@@ -11,14 +11,32 @@ private:
     int _freePosition = 0;
 
 public:
-    std::vector<T> members;
+    std::vector<T*> members;
     int memberCount = 0;
     int maxSize = 0;
 
-    NGroup(int maxSize);
-    T add(T obj);
-    T remove(T obj);
-    virtual void render();
+    NGroup(int maxSize) {
+        this->maxSize = maxSize;
+    }
+
+    T* add(T* obj) {
+        this->members.push_back(obj);
+        return obj;
+    }
+
+    T* remove(T* obj) {
+        this->members.erase(std::remove(this->members.begin(), this->members.end(), obj),
+            this->members.end());
+        return obj;
+    }
+
+    virtual void render() {
+        for (T*& member: this->members) {
+            if (member != nullptr && member->_exists) {
+                member->render();
+            }
+        }
+    }
     
     virtual ~NGroup() {}
 };

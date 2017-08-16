@@ -4,9 +4,9 @@
 #include "../deps.h"
 
 class NBasic {
-private:
-    bool _exists = true;
 public:
+    bool _exists = true;
+
     virtual void update(float dt) {}
     virtual void render() {}
     
