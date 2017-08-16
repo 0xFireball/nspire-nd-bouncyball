@@ -12,13 +12,15 @@ class NGame {
     std::string _cwd;
     int _frameCount;
     std::unique_ptr<NClock> _clock;
+    bool _quit = false;
+    NState* _currentState;
 
     void init_vars();
 
   protected:
     void destroy();
     void game_loop();
-    void update(int elapsed);
+    void update();
     void render();
 
   public:

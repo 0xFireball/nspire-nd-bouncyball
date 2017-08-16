@@ -27,7 +27,8 @@ void NGame::init(int width, int height, int targetFramerate) {
 }
 
 void NGame::switch_state(NState* state) {
-    
+    if (this->_currentState != nullptr) delete this->_currentState;
+    this->_currentState = state;
 }
 
 void NGame::init_vars() {
@@ -35,6 +36,8 @@ void NGame::init_vars() {
 }
 
 void NGame::destroy() {
+    // delete the current state
+    this->switch_state(nullptr);
     SDL_FreeSurface(this->_screen);
 }
 
@@ -49,15 +52,30 @@ void NGame::start() {
 }
 
 void NGame::game_loop() {
-    
+    while (!this->_quit) {
+        while (SDL_PollEvent(&event)) {
+            switch (event.type) {
+                case SDL_QUIT:
+                    this->_quit = true;
+            }
+        }
+        // loop frame
+        this->update();
+
+        this->_frameCount++;
+    }
 }
 
-void NGame::update(int elapsed) {
-
+void NGame::update() {
+    this->_clock.update();
+    int dt = this->_clock->getElapsed();
+    // update the current state
+    this->_currentState->update(dt / 1000f);
 }
 
 void NGame::render() {
-
+    // render the current state
+    this->_currentState->render();
 }
 
 #ifdef desktop
