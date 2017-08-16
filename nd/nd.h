@@ -1,21 +1,7 @@
-#include "platform.h"
 
-// Other
-#include <string>
+#pragma once
 
-// SDL
-#include <SDL/SDL.h>
-#include <SDL/SDL_config.h>
+#include "deps.h"
 
-class NGame {
-  private:
-    SDL_Surface *_screen;
-
-  public:
-    NGame();
-    void init();
-
-#ifdef desktop
-// desktop specific
-#endif
-};
+#include "system/NGame.h"
+#include "system/NState.h"

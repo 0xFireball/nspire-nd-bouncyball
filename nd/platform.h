@@ -18,3 +18,5 @@
 #define DISPLAY_WIDTH 320
 #define DISPLAY_HEIGHT 240
 #define DISPLAY_BPP 16
+
+#define MAX_PATH 256
