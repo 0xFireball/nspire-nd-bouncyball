@@ -5,11 +5,10 @@
 
 class NClock {
 private:
-    int _last;
-    int _dt;
+    int _last = 0;
+    int _dt = 0;
 public:
     NClock() {
-        this->reset();
     }
 
     int getElapsed() {
@@ -18,11 +17,11 @@ public:
 
     void update() {
         int now = SDL_GetTicks();
-        _dt = now - _last;
-        _last = now;
+        this->_dt = now - this->_last;
+        this->_last = now;
     }
 
     void reset() {
-        _last = SDL_GetTicks();
+        this->_last = SDL_GetTicks();
     }
 };

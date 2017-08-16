@@ -62,6 +62,7 @@ void NGame::game_loop() {
         }
         // loop frame
         this->update();
+        this->render();
 
         this->_frameCount++;
     }

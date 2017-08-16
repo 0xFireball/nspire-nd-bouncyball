@@ -12,6 +12,7 @@ int main(int argc, char** argv)
     // Initialize NGame at max screen size, 60FPS target
     game->init(0, 0, 60);
     game->switch_state(new GameState());
+    game->start();
 
     return 0;
 }

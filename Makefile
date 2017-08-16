@@ -77,4 +77,4 @@ $(EXE).bin: $(CXXFILES)
 endif
 
 clean:
-	rm -f *.o $(DISTDIR)/$(EXE).tns $(DISTDIR)/$(EXE).elf $(DISTDIR)/$(EXE).prg.tns
+	rm -f *.o $(DISTDIR)/$(EXE).tns $(DISTDIR)/$(EXE).elf $(DISTDIR)/$(EXE).bin $(DISTDIR)/$(EXE).prg.tns
