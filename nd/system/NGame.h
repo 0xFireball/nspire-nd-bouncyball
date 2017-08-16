@@ -9,6 +9,7 @@ class NGame {
   private:
     SDL_Surface *_screen;
     int _targetFramerate;
+    int _targetFramerateTicks;
     std::string _cwd;
     int _frameCount;
     NClock* _clock;
@@ -20,7 +21,7 @@ class NGame {
   protected:
     void destroy();
     void game_loop();
-    void update();
+    void update(int dt);
     void render();
 
   public:

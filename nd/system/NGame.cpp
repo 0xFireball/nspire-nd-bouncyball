@@ -18,6 +18,7 @@ void NGame::init(int width, int height, int targetFramerate) {
     this->_screen = SDL_SetVideoMode(width, height, DISPLAY_BPP, SDL_SWSURFACE);
 
     this->_targetFramerate = targetFramerate;
+    this->_targetFramerateTicks = 1000 / targetFramerate;
 
     // initialize
     this->init_vars();
@@ -66,17 +67,25 @@ void NGame::game_loop() {
                     this->_quit = true;
             }
         }
+
         // loop frame
-        this->update();
+        this->_clock->update();
+        int dt = this->_clock->getElapsed();
+
+        this->update(dt);
         this->render();
 
         this->_frameCount++;
+
+        // limit framerate
+        int aheadTime = this->_targetFramerateTicks - dt;
+        if (aheadTime > 0) {
+            SDL_Delay(aheadTime); // sleep
+        }
     }
 }
 
-void NGame::update() {
-    this->_clock->update();
-    int dt = this->_clock->getElapsed();
+void NGame::update(int dt) {
     // update the current state
     this->_currentState->update(dt / 1000.0f);
 }
