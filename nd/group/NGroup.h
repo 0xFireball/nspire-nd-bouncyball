@@ -6,7 +6,7 @@
 #include "../entity/NBasic.h"
 
 template <class T>
-class NTypedGroup : public NBasic {
+class NGroup : public NBasic {
 private:
     int _freePosition = 0;
 
@@ -15,10 +15,10 @@ public:
     int memberCount = 0;
     int maxSize = 0;
 
-    NTypedGroup(int maxSize);
+    NGroup(int maxSize);
     T add(T obj);
     T remove(T obj);
     virtual void render();
     
-    virtual ~NTypedGroup() {}
+    virtual ~NGroup() {}
 };
