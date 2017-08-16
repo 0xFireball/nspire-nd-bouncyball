@@ -1,4 +1,10 @@
 
+/*
+  ND2 - Lightweight 2D rendering framework for SDL1.2.
+
+  by 0xFireball
+*/
+
 #pragma once
 
 #include "deps.h"
