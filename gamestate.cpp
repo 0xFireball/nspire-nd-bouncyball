@@ -6,6 +6,10 @@ void GameState::create() {
 
     this->setClearColor(NColor(84, 84, 84));
 
+    NSprite* ball = new NSprite(20, 20);
+    ball->loadGraphic("ball.bmp.tns");
+    this->add(ball);
+
     NState::create();
 }
 
