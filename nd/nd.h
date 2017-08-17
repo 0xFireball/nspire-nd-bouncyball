@@ -12,4 +12,6 @@
 #include "system/NGame.h"
 #include "system/NState.h"
 
-#include "entity/NEntity.h"
+#include "sprite/NSprite.h"
+
+#include "assets/NAssets.h"

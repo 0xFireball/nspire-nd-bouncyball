@@ -1,4 +1,6 @@
+
 #include "NGame.h"
+#include "../assets/NAssets.h"
 
 NGame::NGame() {}
 
@@ -8,6 +10,8 @@ void NGame::platform_init(int argc, char** argv) {
         std::string cwd = program;
         cwd = cwd.substr(0, cwd.find_last_of('/') + 1);
         this->_cwd = cwd;
+        // set asset path
+        NAssetLoader::set_base_path(cwd);
     }
 }
 
