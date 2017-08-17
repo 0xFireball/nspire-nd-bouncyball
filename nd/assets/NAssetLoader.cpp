@@ -13,10 +13,10 @@ std::string NAssetLoader::get_full_path(std::string subpath) {
 
 SDL_Surface* NAssetLoader::load_bmp_ex(std::string path) {
     #if desktop
-    return SDL_LoadBMP(path);
+    return SDL_LoadBMP(path.c_str());
     #elif nspire
     SDL_Surface *rawBmp, *img;
-    rawBmp = SDL_LoadBMP(path);
+    rawBmp = SDL_LoadBMP(path.c_str());
     if (rawBmp == nullptr) return nullptr;
     // format image for display surface
     img = SDL_DisplayFormat(rawBmp);

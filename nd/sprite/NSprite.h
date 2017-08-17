@@ -6,7 +6,7 @@
 
 class NSprite : public NEntity {
   protected:
-    SDL_Surface *graphic = nullptr;
+    SDL_Surface *_graphic = nullptr;
 
   public:
     NSprite(int x = 0, int y = 0) : NEntity(x, y) {}
@@ -15,5 +15,5 @@ class NSprite : public NEntity {
     void loadGraphic(NAssetPath asset);
 
     //
-    virtual void render();
+    virtual void render(SDL_Surface* screen);
 };
