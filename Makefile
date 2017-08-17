@@ -49,6 +49,9 @@ else ifeq ($(XPLAT_TARGET), desktop)
 desktop: $(EXE).bin
 endif
 
+CXXFILES = $(shell find . -name \*.cpp)
+$(info Compile: [${GXX} ${CFLAGS}])
+
 ifeq ($(XPLAT_TARGET), nspire)
 
 $(EXE).tns: $(EXE).elf
@@ -57,22 +60,12 @@ $(EXE).tns: $(EXE).elf
 $(EXE).prg.tns: $(EXE).tns
 	make-prg $(DISTDIR)/$^ $(DISTDIR)/$@
 
-%.o: %.c
-	$(GCC) $(CFLAGS) -c $<
-
-%.o: %.cpp
-	$(GXX) $(CFLAGS) -c $<
-	
-%.o: %.S
-	$(AS) -c $<
-
 $(EXE).elf: $(OBJS)
 	mkdir -p $(DISTDIR)
-	$(LD) $^ -o $(DISTDIR)/$@ $(LDFLAGS)
+# $(LD) $^ -o $(DISTDIR)/$@ $(LDFLAGS)
+	$(GXX) $(CFLAGS) $(CXXFILES) -o $(DISTDIR)/$@
 
 else ifeq ($(XPLAT_TARGET), desktop)
-CXXFILES = $(shell find . -name \*.cpp)
-$(info Compile: [${GXX} ${CFLAGS}])
 $(EXE).bin: $(CXXFILES)
 	mkdir -p $(DISTDIR)
 	$(GXX) $(CFLAGS) $(CXXFILES) -o $(DISTDIR)/$(EXE).bin
