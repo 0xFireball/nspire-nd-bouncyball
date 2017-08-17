@@ -12,4 +12,4 @@
 #include "system/NGame.h"
 #include "system/NState.h"
 
-#include "entity/NBasic.h"
+#include "entity/NEntity.h"
