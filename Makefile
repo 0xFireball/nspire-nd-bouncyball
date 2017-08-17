@@ -43,8 +43,11 @@ vpath %.tns $(DISTDIR)
 vpath %.elf $(DISTDIR)
 vpath %.bin $(DISTDIR)
 
-desktop: $(EXE).bin
+ifeq ($(XPLAT_TARGET), nspire)
 nspire: $(EXE).prg.tns
+else ifeq ($(XPLAT_TARGET), desktop)
+desktop: $(EXE).bin
+endif
 
 ifeq ($(XPLAT_TARGET), nspire)
 
