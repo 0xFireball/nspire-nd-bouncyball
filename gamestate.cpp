@@ -14,5 +14,6 @@ void GameState::create() {
 }
 
 void GameState::update(float dt) {
+    // TODO: add custom update logic
     NState::update(dt);
 }
